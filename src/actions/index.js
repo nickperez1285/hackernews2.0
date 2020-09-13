@@ -66,8 +66,8 @@ export const login = creds => dispatch => {
 
 
 
+    // return axios.post('https://hackernewsclone5.herokuapp.com/users/login', creds)
     return axios.post('https://hackernewsclone5.herokuapp.com/users/login', creds)
-// return axios.post('https://hackernewsclone5.herokuapp.com/users/login', creds)
         .then(res => {
 
             console.log('response login', res)
@@ -82,7 +82,7 @@ export const login = creds => dispatch => {
 
             const instance = axios.create({
                 withCredentials: true,
-                baseURL: "https://hackernewsclone5.herokuapp.com"
+                baseURL: "https://hackernewsclone5.herokuapp.com/users/login"
             })
 
 
