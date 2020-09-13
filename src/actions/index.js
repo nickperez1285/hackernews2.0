@@ -66,8 +66,8 @@ export const login = creds => dispatch => {
 
 
 
-    // return axios.post('https://hackernewsclone5.herokuapp.com/users/login', creds)
-    return axios.post('https://hackernewsclone5.herokuapp.com/users/login', creds)
+    return axios.post('https://superior2020.uc.r.appspot.com/users/login', creds)
+        // return axios.post('https://hackernewsclone5.herokuapp.com/users/login', creds)
         .then(res => {
 
             res.data.success == "logged in" ? localStorage.setItem("status", 1) : localStorage.setItem('status', 0);
@@ -88,7 +88,7 @@ export const login = creds => dispatch => {
 
 
             axios
-                .get('https://hackernewsclone5.herokuapp.com/posts')
+                .get('https://superior2020.uc.r.appspot.com//posts')
 
                 .then(res => {
                     dispatch({
