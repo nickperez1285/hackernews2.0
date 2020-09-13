@@ -45,7 +45,6 @@ export const addPost = (post) => (dispatch) => {
 
 
         .then(res => {
-            console.log(res, "pos tresponse ")
             axios
                 .get("https://hackernewsclone5.herokuapp.com/posts")
 
@@ -66,11 +65,13 @@ export const login = creds => dispatch => {
 
 
 
-    return axios.post('https://superior2020.uc.r.appspot.com/users/login', creds)
+    return (HN.login(creds))
+        // return axios.post('https://superior2020.uc.r.appspot.com/users/login', creds)
         // return axios.post('https://hackernewsclone5.herokuapp.com/users/login', creds)
         .then(res => {
+            console.log(res, "login")
 
-            res.data.success == "logged in" ? localStorage.setItem("status", 1) : localStorage.setItem('status', 0);
+            res == "true" ? localStorage.setItem("status", 1) : localStorage.setItem('status', 0);
             console.log(res, 'login info response');
 
             localStorage.getItem('status') ? localStorage.setItem("username", JSON.stringify(creds.username)) : localStorage.setItem('username', '');
@@ -88,7 +89,7 @@ export const login = creds => dispatch => {
 
 
             axios
-                .get('https://superior2020.uc.r.appspot.com//posts')
+                .get('https://hn.algolia.com/api/v1/search?query=new')
 
                 .then(res => {
                     dispatch({
@@ -104,35 +105,35 @@ export const login = creds => dispatch => {
 
 
 export const registerNew = creds => dispatch => {
-    HN.getHmac(24456658).then(res => {
-        console.log(res, "hn")
-    }
-    )
 
 
-    return axios.post('https://hackernewsclone5.herokuapp.com/users/register', creds)
+
+
+    return (HN.register(creds))
+        // return axios.post('https://hackernewsclone5.herokuapp.com/users/register', creds)
         .then(res => {
 
             console.log(res.data)
-            res.data.success == "User Created" ? localStorage.setItem("status", 1) : localStorage.setItem('status', 0);
+            res == true ? localStorage.setItem("status", 1) : localStorage.setItem('status', 0);
 
             localStorage.getItem('status') ? localStorage.setItem("username", JSON.stringify(creds.username)) : localStorage.setItem('username', '');
 
 
-            // console.log(localStorage, 'loclstorage info ');
+            console.log(res, 'regist ');
 
 
             // let cookStore = cookie.load('connect.sid')
 
             // Cookies.set('cook', cookStore)
 
-            // console.log(cookStore, "cookStore")
+            // console.log(cookStore,"cookStore")
 
 
             axios
-                .get('https://hackernewsclone5.herokuapp.com/posts')
-
+                .get('https://hn.algolia.com/api/v1/search?query=new')
                 .then(res => {
+                    console.log(res.data, 'register')
+
                     dispatch({
                         type: GET_POSTS_SUCCESS,
                         payload: res.data
