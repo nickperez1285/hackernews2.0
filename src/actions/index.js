@@ -70,23 +70,13 @@ export const login = creds => dispatch => {
     return axios.post('https://hackernewsclone5.herokuapp.com/users/login', creds)
         .then(res => {
 
-            console.log('response login', res)
             res.data.success == "logged in" ? localStorage.setItem("status", 1) : localStorage.setItem('status', 0);
             console.log(res, 'login info response');
 
             localStorage.getItem('status') ? localStorage.setItem("username", JSON.stringify(creds.username)) : localStorage.setItem('username', '');
             // console.log(localStorage, 'loclstorage info ');
 
-            localStorage.setItem("token", res.config.headers)
-            console.log("token")
 
-            const instance = axios.create({
-                withCredentials: true,
-                baseURL: "https://hackernewsclone5.herokuapp.com/users/login"
-            })
-
-
-            console.log('instance', instance)
 
 
 
