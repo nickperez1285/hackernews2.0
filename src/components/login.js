@@ -47,9 +47,6 @@ const Login = (props) => {
 
 
         <div>
-        <p> login info is
-            username: 'test',
-        password: 'test'</p>
         <form onSubmit={submit}>
             <label>Username</label>
             <input
