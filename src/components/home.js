@@ -3,16 +3,13 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPosts } from '../actions';
-import {  useParams } from "react-router-dom"
 
 
 
 
 const Home = (props) => {
     const [posts, setPosts] = useState([])
-     const {id} = useParams()
     
-
 
 
 
@@ -68,7 +65,7 @@ const Home = (props) => {
                              <a href={`/comment/` + post.objectID} style = {{
                              textDecoration: "none",
                              color: 'black',
-                         }}> {post.num_comments} comments</a>}
+                         }}> {post.num_comments} comments</a>
                 </td>
                 </tbody>
             
