@@ -10,12 +10,10 @@ import {  useParams } from "react-router-dom"
 
 const Home = (props) => {
     const [posts, setPosts] = useState([])
-    const [login, setLogin] = useState(0)
      const {id} = useParams()
     
 
-useEffect(()=> {   localStorage.getItem('status') ? setLogin(1): setLogin(0)
-}, [localStorage])
+
 
 
     // temporary
@@ -66,13 +64,7 @@ useEffect(()=> {   localStorage.getItem('status') ? setLogin(1): setLogin(0)
             }}>
                 }                {post.points} points by {post.author} | 
 
-             {  login? 
-
-              <a href={`/submit/` + post.objectID} style = {{
-                             textDecoration: "none",
-                             color: 'black',
-                         }}> {post.num_comments} comments</a>
-                         :
+             
                              <a href={`/comment/` + post.objectID} style = {{
                              textDecoration: "none",
                              color: 'black',
