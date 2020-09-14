@@ -149,7 +149,6 @@ const Form = (props) => {
                 </form>
                 </td>
                 </tr>
-            {console.log(story, "params")}
                   </table>
 
  <table style = {{

@@ -78,7 +78,6 @@ const Home = (props) => {
         }
         </td>
     </tr>
-    {console.log("home", props.state)}
 
 </table>
 

@@ -19,6 +19,11 @@ const HomeLoggedIn = (props) => {
                 // console.log(props.getPosts())
                 setPosts(res.data.hits)
                 console.log(res.data, 'home data ')
+
+
+                console.log(HN.getHmac(24466666), 'id')
+                HN.getHmac(4466855).then(res => console.log(res, "hmac"))
+
             })
             .catch(err => {
                 console.log(err)
@@ -62,7 +67,6 @@ const HomeLoggedIn = (props) => {
             }}> {post.title}     </a>
                         </td>
                     </tr>
-                  {console.log(localStorage.getItem("status"), "home")}
 
                     
                         <td className = "subtext"  style = {{
@@ -77,12 +81,13 @@ const HomeLoggedIn = (props) => {
                 </tbody>
 
 
-   
+
             </table>
         ))
         }
         </td>
     </tr>
+
     </table>
 
     )
