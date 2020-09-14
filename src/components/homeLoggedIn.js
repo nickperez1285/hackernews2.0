@@ -73,7 +73,7 @@ const HomeLoggedIn = (props) => {
                 fontSize: "10px",
                 display: "inherit"
             }}>
-                {posts[idx].points} points by {post.author} | <a href={'/submit/' + post.objectID}style = {{
+                {posts[idx].points} points by {post.author} | <a href={'/submit/' + post.objectID} style = {{
                 textDecoration: "none",
                 color: 'black',
             }}> {post.num_comments} comments</a>

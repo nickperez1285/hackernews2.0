@@ -61,10 +61,10 @@ const Home = (props) => {
                 }                {post.points} points by {post.author} | 
 
              
-                             <a href to={'/comment/' + post.objectID} style = {{
+                             <a href={'/comment/' + post.objectID} style = {{
                 textDecoration: "none",
                 color: 'black',
-            }}> {post.num_comments} comments</a>
+            }}> {post.num_comments} commesnts</a>
                 </td>
                 </tbody>
             
