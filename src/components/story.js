@@ -19,7 +19,6 @@ const Story = (props) => {
     const {id} = useParams();
 
     const [story, setStory] = useState({})
-    const [children, setChildren] = useState([])
 
     useEffect(() => {
         axios.get("https://hn.algolia.com/api/v1/items/" + id)
@@ -27,7 +26,6 @@ const Story = (props) => {
                 // const data = res.data.hits
                 // console.log(props.getPosts())
                 setStory(res.data)
-                setChildren(res.data.children)
 
 
 
@@ -65,7 +63,6 @@ const Story = (props) => {
         e.preventDefault()
         // needs to be made
         props.addPost(post);
-        setChildren([post, ...children])
         console.log(post)
         setPost({
             "title": '',
@@ -73,7 +70,7 @@ const Story = (props) => {
             "text": ''
 
         });
-    // history.push("/home")
+        history.push("/home")
     };
 
 
