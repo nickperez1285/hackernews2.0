@@ -10,7 +10,7 @@ import HN from "../API/wrap.js"
 
 // make into private route 
 
-const Form = (props) => {
+const Story = (props) => {
 
     // {`http://hn.algolia.com/api/v1/items/`+post.objectID}
     // 
@@ -101,7 +101,7 @@ const Form = (props) => {
                 <span>{story.title}</span>
 
                 <form onSubmit={handleSubmit} >
-                Author
+                TITLE
                     <input
         name="title"
         onChange={changeHandler}
@@ -111,10 +111,21 @@ const Form = (props) => {
             width: "80%",
         }}
         />
-                 
+                    <div className="baseline" />
+                    URL .   
 
-  
-<div className="baseline" />
+                    <input
+        name="url"
+        onChange={changeHandler}
+        placeholder=""
+        value={post.url}
+        style = {{
+            width: "80%",
+            display: "absolute"
+        }}
+        />
+                    <div className="baseline" />
+                   <center><p>OR</p></center>
 
 
                 TEXT
@@ -211,4 +222,4 @@ const Form = (props) => {
 
 export default connect(null, {
     addPost
-})(Form);
+})(Story);

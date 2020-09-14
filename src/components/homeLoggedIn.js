@@ -21,8 +21,8 @@ const HomeLoggedIn = (props) => {
                 console.log(res.data, 'home data ')
 
                 console.log(localStorage, "homelog")
-                console.log(HN.getHmac(24466666), 'id')
-                HN.getHmac(4466855).then(res => console.log(res, "hmac"))
+                console.log(HN.getHmac(24467573), 'id')
+                HN.getHmac(24467573).then(res => console.log(res, "hmac"))
 
             })
             .catch(err => {
@@ -79,7 +79,6 @@ const HomeLoggedIn = (props) => {
             }}> {post.num_comments} comments</a>
                 </td>
                 </tbody>
-
 
 
             </table>

@@ -53,7 +53,12 @@ const Navbar = (props) => {
                 <a href="">ask | </a>
                 <a href="">show | </a>
                 <a href="">jobs | </a>
-                <a href="/submit" >submit </a>
+                {localStorage.getItem("status") ?
+            <a href="/story" >submit </a>
+            :
+            <a href="/login" >submit </a>
+
+        }
             </span>
         </td>
         <tr>
