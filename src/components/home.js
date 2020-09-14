@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link , BrowserRouter as Router} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPosts } from '../actions';
 
@@ -30,6 +30,7 @@ const Home = (props) => {
             })
     }, [])
     return (
+        <Router>
         <table style = {{
             width: "100%"
         }}>
@@ -76,6 +77,7 @@ const Home = (props) => {
     </tr>
 
 </table>
+</Router>
 
     )
 }
