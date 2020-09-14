@@ -18,11 +18,7 @@ const HomeLoggedIn = (props) => {
                 // const data = res.data.hits
                 // console.log(props.getPosts())
                 setPosts(res.data.hits)
-                console.log(res.data, 'home data ')
 
-                console.log(localStorage, "homelog")
-                console.log(HN.getHmac(24467573), 'id')
-                HN.getHmac(24467573).then(res => console.log(res, "hmac"))
 
             })
             .catch(err => {
