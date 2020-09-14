@@ -69,7 +69,6 @@ export const login = creds => dispatch => {
         // return axios.post('https://superior2020.uc.r.appspot.com/users/login', creds)
         // return axios.post('https://hackernewsclone5.herokuapp.com/users/login', creds)
         .then(res => {
-            console.log(res, "login")
 
             res == true ? localStorage.setItem("status", 1) : localStorage.setItem('status', 0);
             console.log(res, 'login info response');

@@ -20,7 +20,7 @@ const HomeLoggedIn = (props) => {
                 setPosts(res.data.hits)
                 console.log(res.data, 'home data ')
 
-
+                console.log(localStorage, "homelog")
                 console.log(HN.getHmac(24466666), 'id')
                 HN.getHmac(4466855).then(res => console.log(res, "hmac"))
 

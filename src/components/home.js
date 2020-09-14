@@ -10,16 +10,24 @@ import {  useParams } from "react-router-dom"
 
 const Home = (props) => {
     const [posts, setPosts] = useState([])
-        const {id} = useParams()
+    const [login, setLogin] = useState(0)
+     const {id} = useParams()
+    
+
+useEffect(()=> {   localStorage.getItem('status') ? setLogin(1): setLogin(0)
+}, [localStorage])
 
 
     // temporary
     useEffect(() => {
+
         axios.get(`https://hn.algolia.com/api/v1/search?tags=front_page`)
             .then(res => {
                 // const data = res.data.hits
                 setPosts(res.data.hits, 'post conetent')
                 console.log(res.data.hits.[0].objectID, 'posts')
+
+
 
             })
             .catch(err => {
@@ -58,8 +66,7 @@ const Home = (props) => {
             }}>
                 }                {post.points} points by {post.author} | 
 
-
-             {  localStorage.status? 
+             {  login? 
 
               <a href={`/submit/` + post.objectID} style = {{
                              textDecoration: "none",
