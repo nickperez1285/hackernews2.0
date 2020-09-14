@@ -53,7 +53,7 @@ const Navbar = (props) => {
                 <a href="">ask | </a>
                 <a href="">show | </a>
                 <a href="">jobs | </a>
-                <a href="/submit" >submit | </a>
+                <a href="/submit" >submit | test</a>
             </span>
         </td>
         <tr>
