@@ -19,8 +19,9 @@ function App(props) {
     <Route path="/"  exact component={Home} />
     <Route path="/home1"  exact component={Home} />
     <Route path="/login" exact component={Login} />
-    <Route path="/comment" exact component={Comments} />
-    <PrivateRoute path="/submit" exact component={Form} />
+    <Route path="/comment/:id" component={Comments} />
+    <PrivateRoute path="/submit/:id" exact component={Form} />
+    <PrivateRoute path="/submit"  exact component={Form} />
       <PrivateRoute path="/home" exact component={HomeLoggedIn} />
         
       </div>

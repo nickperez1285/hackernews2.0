@@ -3,19 +3,24 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPosts } from '../actions';
+import {  useParams } from "react-router-dom"
 
 
 
 
 const Home = (props) => {
     const [posts, setPosts] = useState([])
+        const {id} = useParams()
+
+
     // temporary
     useEffect(() => {
         axios.get(`https://hn.algolia.com/api/v1/search?tags=front_page`)
             .then(res => {
                 // const data = res.data.hits
-                console.log(props.getPosts())
-                setPosts(res.data.hits)
+                setPosts(res.data.hits, 'post conetent')
+                console.log(res.data.hits.[0].objectID, 'posts')
+
             })
             .catch(err => {
                 console.log(err)
@@ -51,10 +56,20 @@ const Home = (props) => {
                 fontSize: "10px",
                 display: "inherit"
             }}>
-                {post.points} points by {post.author} | <a href="/"  style = {{
-                textDecoration: "none",
-                color: 'black',
-            }}> {post.num_comments} comments</a>
+                }                {post.points} points by {post.author} | 
+
+
+             {  localStorage.status? 
+
+              <a href={`/submit/` + post.objectID} style = {{
+                             textDecoration: "none",
+                             color: 'black',
+                         }}> {post.num_comments} comments</a>
+                         :
+                             <a href={`/comment/` + post.objectID} style = {{
+                             textDecoration: "none",
+                             color: 'black',
+                         }}> {post.num_comments} comments</a>}
                 </td>
                 </tbody>
             

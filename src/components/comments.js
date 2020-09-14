@@ -18,33 +18,33 @@ const Comments = (props) => {
             })
     }, [])
     return (
-        <table style = {{
-            width: "100%"
-        }}>
+       <table style = {{
+    width: "100%"
+}}>
     
     <tr className = "homebody">
         <td>
             { comments.map((comment, idx) => (
-            <table>
+    <table>
                 <tbody>
-                  
-                    <tr>
 
+                    <tr>
                         <td className = "subtext"  style = {{
-                fontSize: "10px",
-                display: "inherit"
-            }}>
+
+        fontSize: "10px",
+        display: "inherit"
+    }}>
                         <a href="" style = {{
-                textDecoration: "none",
-                fontSize: "20px"
-            }}>
+        textDecoration: "none",
+        fontSize: "20px"
+    }}>
                                 ^ 
                             </a>
 
                              {comment.points}   points by {comment.author} | <a href="/"  style = {{
-                textDecoration: "none",
-                color: 'black',
-            }}> {comment.story_title} </a>
+        textDecoration: "none",
+        color: 'black',
+    }}> {comment.story_title} </a>
                 </td>
                 </tr>
                   <tr >
@@ -57,8 +57,8 @@ const Comments = (props) => {
                 </tbody>
             
             </table>
-        ))
-        }
+))
+}
         </td>
     </tr>
     {console.log("home", props.state)}

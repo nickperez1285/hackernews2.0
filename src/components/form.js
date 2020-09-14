@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { addPost } from '../actions';
-import { BrowserRouter as Router, Route, useHistory, Redirect } from "react-router-dom"
+import { BrowserRouter as Router, Route, useHistory, Redirect, useParams } from "react-router-dom"
+import axios from 'axios'
+import HN from "../API/wrap.js"
 
 
 
@@ -10,8 +12,39 @@ import { BrowserRouter as Router, Route, useHistory, Redirect } from "react-rout
 
 const Form = (props) => {
 
+    // {`http://hn.algolia.com/api/v1/items/`+post.objectID}
+    // 
+
     let history = useHistory()
+    const {id} = useParams();
+
+    const [story, setStory] = useState(`http://hn.algolia.com/api/v1/items/` + id)
+    const [children, setChildren] = useState([])
+
+    useEffect(() => {
+        axios.get(story)
+            .then(res => {
+                // const data = res.data.hits
+                // console.log(props.getPosts())
+                setStory(res.data)
+                setChildren(res.data.children)
+
+
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
     const [post, setPost] = useState(
+        {
+            "title": "",
+            "link": "",
+            "text": "",
+
+        })
+
+    const [localPost, setLocalPost] = useState(
         {
             "title": "",
             "link": "",
@@ -32,6 +65,7 @@ const Form = (props) => {
         e.preventDefault()
         // needs to be made
         props.addPost(post);
+        setLocalPost(post)
         console.log(post)
         setPost({
             "title": '',
@@ -44,9 +78,12 @@ const Form = (props) => {
 
 
     return (
+        <div>
+
         <table style = {{
             width: "80%"
         }}>
+
         <tr style={{
 
         }}> <td style={{
@@ -60,8 +97,9 @@ const Form = (props) => {
         <tr>
 
 
-
         <td>
+                <span>{story.title}</span>
+
                 <form onSubmit={handleSubmit} >
                 TITLE
                     <input
@@ -111,8 +149,70 @@ const Form = (props) => {
                 </form>
                 </td>
                 </tr>
-{console.log(localStorage)
-        }            </table>
+            {console.log(story, "params")}
+                  </table>
+
+ <table style = {{
+            width: "100%"
+        }}>
+    
+    <tr className = "homebody">
+        <td>
+
+
+             {   children.map((comment, idx) => (
+
+        comment.text == null ? console.log("notext")
+            :
+
+            <table>
+                <tbody>
+
+                    <tr>
+                        <td className = "subtext"  style = {{
+
+                fontSize: "10px",
+                display: "inherit"
+            }}>
+                        <a href="" style = {{
+                textDecoration: "none",
+                fontSize: "20px"
+            }}>
+                              ^ 
+                            </a>
+
+                              {comment.author} <a href="/"  style = {{
+                textDecoration: "none",
+                color: 'black',
+            }}> {comment.story_title} </a>
+                </td>
+                </tr>
+                  <tr >
+                        <td align="left" >
+                           
+                            
+                {comment.text}     
+                        </td>
+                    </tr>
+                </tbody>
+            
+            </table>
+        ))
+        }
+        </td>
+    </tr>
+    {console.log("home", props.state)}
+
+</table>
+
+
+
+
+
+
+   
+
+        </div>
     )
 }
 

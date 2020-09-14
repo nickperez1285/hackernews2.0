@@ -71,7 +71,7 @@ export const login = creds => dispatch => {
         .then(res => {
             console.log(res, "login")
 
-            res == "true" ? localStorage.setItem("status", 1) : localStorage.setItem('status', 0);
+            res == true ? localStorage.setItem("status", 1) : localStorage.setItem('status', 0);
             console.log(res, 'login info response');
 
             localStorage.getItem('status') ? localStorage.setItem("username", JSON.stringify(creds.username)) : localStorage.setItem('username', '');

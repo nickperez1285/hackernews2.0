@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { getPosts } from '../actions';
 import HN from "../API/wrap.js"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 
 
@@ -62,18 +62,22 @@ const HomeLoggedIn = (props) => {
             }}> {post.title}     </a>
                         </td>
                     </tr>
+                  {console.log(localStorage.getItem("status"), "home")}
+
                     
                         <td className = "subtext"  style = {{
                 fontSize: "10px",
                 display: "inherit"
             }}>
-                {posts[idx].points} points by {post.author} | <a href="/submit" style = {{
+                {posts[idx].points} points by {post.author} | <a href={`/submit/` + post.objectID}style = {{
                 textDecoration: "none",
                 color: 'black',
             }}> {post.num_comments} comments</a>
                 </td>
                 </tbody>
-            
+
+
+   
             </table>
         ))
         }
