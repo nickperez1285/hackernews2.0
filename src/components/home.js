@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPosts } from '../actions';
 
@@ -29,7 +29,6 @@ const Home = (props) => {
             })
     }, [])
     return (
-        <Router>
         <table style = {{
             width: "100%"
         }}>
@@ -62,7 +61,7 @@ const Home = (props) => {
                 }                {post.points} points by {post.author} | 
 
              
-                             <Link to={'/comment' + "/" + posts[idx].objectID} style = {{
+                             <Link to={'/comment/' + post.objectID} style = {{
                 textDecoration: "none",
                 color: 'black',
             }}> {post.num_comments} comments</Link>
@@ -76,7 +75,6 @@ const Home = (props) => {
     </tr>
 
 </table>
-</Router>
 
     )
 }
