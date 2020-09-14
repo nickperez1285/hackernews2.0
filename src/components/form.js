@@ -18,11 +18,11 @@ const Form = (props) => {
     let history = useHistory()
     const {id} = useParams();
 
-    const [story, setStory] = useState(`http://hn.algolia.com/api/v1/items/` + id)
+    const [story, setStory] = useState({})
     const [children, setChildren] = useState([])
 
     useEffect(() => {
-        axios.get(story)
+        axios.get("http://hn.algolia.com/api/v1/items/" + id)
             .then(res => {
                 // const data = res.data.hits
                 // console.log(props.getPosts())
@@ -65,7 +65,6 @@ const Form = (props) => {
         e.preventDefault()
         // needs to be made
         props.addPost(post);
-        setLocalPost(post)
         console.log(post)
         setPost({
             "title": '',
