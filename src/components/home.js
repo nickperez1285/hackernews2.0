@@ -62,7 +62,7 @@ const Home = (props) => {
                 }                {post.points} points by {post.author} | 
 
              
-                             <Link to={'/comment/'+ posts[idx].objectID} style = {{
+                             <Link to={'/comment'+ "/"+posts[idx].objectID} style = {{
                              textDecoration: "none",
                              color: 'black',
                          }}> {post.num_comments} comments</Link>
