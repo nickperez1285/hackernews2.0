@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link , BrowserRouter as Router} from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPosts } from '../actions';
 
@@ -9,7 +9,7 @@ import { getPosts } from '../actions';
 
 const Home = (props) => {
     const [posts, setPosts] = useState([])
-    
+
 
 
 
@@ -20,7 +20,6 @@ const Home = (props) => {
             .then(res => {
                 // const data = res.data.hits
                 setPosts(res.data.hits, 'post conetent')
-                console.log(res.data.hits.[0].objectID, 'posts')
 
 
 
@@ -63,10 +62,10 @@ const Home = (props) => {
                 }                {post.points} points by {post.author} | 
 
              
-                             <Link to={'/comment'+ "/"+posts[idx].objectID} style = {{
-                             textDecoration: "none",
-                             color: 'black',
-                         }}> {post.num_comments} comments</Link>
+                             <Link to={'/comment' + "/" + posts[idx].objectID} style = {{
+                textDecoration: "none",
+                color: 'black',
+            }}> {post.num_comments} comments</Link>
                 </td>
                 </tbody>
             
