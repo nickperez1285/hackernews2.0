@@ -22,7 +22,7 @@ const Form = (props) => {
     const [children, setChildren] = useState([])
 
     useEffect(() => {
-        axios.get("http://hn.algolia.com/api/v1/items/" + id)
+        axios.get("https://hn.algolia.com/api/v1/items/" + id)
             .then(res => {
                 // const data = res.data.hits
                 // console.log(props.getPosts())
