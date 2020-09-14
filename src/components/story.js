@@ -151,54 +151,7 @@ const Story = (props) => {
  <table style = {{
             width: "100%"
         }}>
-    
-    <tr className = "homebody">
-        <td>
-
-
-             {   children.map((comment, idx) => (
-
-
-        comment.text == null ? console.log("notext")
-            :
-
-            <table>
-                <tbody>
-
-                    <tr>
-                        <td className = "subtext"  style = {{
-
-                fontSize: "10px",
-                display: "inherit"
-            }}>
-                        <a href="" style = {{
-                textDecoration: "none",
-                fontSize: "20px"
-            }}>
-                              ^ 
-                            </a>
-
-                              {comment.author} <a href="/"  style = {{
-                textDecoration: "none",
-                color: 'black',
-            }}> {comment.title} </a>
-                </td>
-                </tr>
-                  <tr >
-                        <td align="left" >
-                           
-                            
-                {comment.text}     
-                        </td>
-                    </tr>
-                </tbody>
-                {console.log("home", comment)}
-
-            </table>
-        ))
-        }
-        </td>
-    </tr>
+ 
 
 </table>
 
