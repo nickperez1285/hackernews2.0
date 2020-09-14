@@ -41,11 +41,11 @@ const Home = (props) => {
                 <tbody>
                     <tr >
                         <td align="left" >{idx + 1}.
-                            <a style = {{
+                            <Link to="" style= {{
                 textDecoration: "none"
             }}>
                                 ^
-                            </a>
+                            </Link>
                             
                             <a href = {post.url} style = {{
                 textDecoration: "none",
@@ -62,10 +62,10 @@ const Home = (props) => {
                 }                {post.points} points by {post.author} | 
 
              
-                             <a href={'/comment/'+ post.objectID} style = {{
+                             <Link to={'/comment/'+ posts[idx].objectID} style = {{
                              textDecoration: "none",
                              color: 'black',
-                         }}> {post.num_comments} comments</a>
+                         }}> {post.num_comments} comments</Link>
                 </td>
                 </tbody>
             
